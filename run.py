@@ -203,7 +203,7 @@ def up():
     except:
         return render_template("mob.html",result = "error")
     finally:
-        print("onnummmmmmmmmm")
+        pass
 
 
 
