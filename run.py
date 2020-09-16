@@ -51,7 +51,7 @@ def addrec():
          name = request.form['name']
          number = request.form['number']
          password = request.form['pass']
-         print("tryyyyyyyyyyyyyyyyyyyy",mail,car,name,password)
+         print("try",mail,car,name,password)
          
          with sql.connect("eye.db") as con:
             cur = con.cursor()
@@ -185,17 +185,16 @@ def up():
         print("Content-Type")
         cur.execute("select gmail,password from user WHERE gmail=(?)",[request.form["mail"]])
         rows = cur.fetchall()
-        print("rowsssss", rows)
+        print("rows", rows)
         for row in rows:
           m=row[0]
           p=row[1]
         print("values are ",p)
         if pwd==p :
           msg="successfully logged"
-          print("ulllaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
           cur.execute("update user set number = ? where gmail = ? ",(mob,mail))
           rows = cur.fetchall()
-          print("ipa paaaru", rows)
+          print(rows)
           con.commit()
           return render_template("mob.html",result = "updated successfully")
         else:
